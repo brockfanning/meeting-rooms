@@ -2,11 +2,16 @@
 
 A javascript tool to kickstart meeting invites with a particular room.
 
+## Dependencies
+
+This library requires the [download.js](https://github.com/rndme/download) library.
+
 ## Usage
 
 ```
 <div id="meetingRoomsContainer"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.7/download.min.js"></script>
 <script src="meeting-rooms.js"></script>
 
 <script>

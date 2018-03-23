@@ -45,15 +45,11 @@ var meetingRooms = function(rooms, container) {
             var name = selectList.options[selected].text;
             var mailto = selectList.options[selected].value;
             var invite = "BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nATTENDEE;CN=\"" + name + "\";CUTYPE=RESOURCE;ROLE=NON-PARTICIPANT;RSVP=TRUE:mailto:" + mailto + "\nLOCATION:" + name + "\nEND:VEVENT\nEND:VCALENDAR";
-            var uri = "data:text/calendar;charset=utf8," + invite;
 
-            // To trigger the download, create a link and click it.
-            var downloadLink = document.createElement("a");
-            downloadLink.href = uri;
-            downloadLink.download = "create-meeting.ics";
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
+            var uri = "data:text/calendar;charset=utf8," + escape(invite);
+            var filename = "create-meeting.ics";
+            var mimetype = "text/calendar";
+            download(uri, filename, mimetype);
         }
     });
 }
